@@ -14,7 +14,11 @@
 
         <div>Microblog: 
             <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('login') }}">Login</a>
+            {% if current_user.is_anonymous %} <!-- Any user that is not logged in is automatically flagged as anonymous -->
+            <a href="{{ url_for('login') }}">Login</a> <!-- Any user not logged in will see the Login prompt -->
+            {% else %}
+            <a href="{{ url_for('logout') }}">Logout</a> <!-- Any user currently logged in will instead see the Logout prompt-->
+            {% endif %}
         </div>
         <hr>
         {% with messages = get_flashed_messages() %}

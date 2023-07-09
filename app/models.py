@@ -1,7 +1,10 @@
+from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 from app import db
+from app import login
+from flask_login import UserMixin
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
@@ -11,6 +14,12 @@ class User(db.Model):
     def __repr__(self):
         return '<User {}>'.format(self.username)
     
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+        
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
+    
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
@@ -19,3 +28,9 @@ class Post(db.Model):
     
     def __repr__(self):
         return '<Post {}>'.format(self.body)
+
+#User loader for Flask-Login    
+@login.user_loader # registers user loader with Flask-Login
+def load_user(id):
+    # id function passed in will be string so it will need to be converted to an integer
+    return User.query.get(int(id))
