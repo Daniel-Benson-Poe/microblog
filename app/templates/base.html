@@ -17,6 +17,7 @@
             {% if current_user.is_anonymous %} <!-- Any user that is not logged in is automatically flagged as anonymous -->
             <a href="{{ url_for('login') }}">Login</a> <!-- Any user not logged in will see the Login prompt -->
             {% else %}
+            <a href="{{ url_for('user', username=current_user.username) }}">Profile</a> <!-- Any user currently logged in will see this link to their profile -->
             <a href="{{ url_for('logout') }}">Logout</a> <!-- Any user currently logged in will instead see the Logout prompt-->
             {% endif %}
         </div>

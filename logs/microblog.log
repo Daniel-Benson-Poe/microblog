@@ -1,0 +1,111 @@
+2023-07-12 15:00:47,630 INFO: Microblog startup [in /Users/Daniel/Desktop/learning_flask/microblog/app/__init__.py:45]
+2023-07-12 15:01:13,032 ERROR: Exception on /edit_profile [POST] [in /Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py:1745]
+Traceback (most recent call last):
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1966, in _exec_single_context
+    cursor, str_statement, effective_parameters, context
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/app/routes.py", line 90, in edit_profile
+    db.session.commit()
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/scoping.py", line 552, in commit
+    return self._proxied.commit()
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1899, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/state_changes.py", line 136, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1218, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/state_changes.py", line 136, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1193, in _prepare_impl
+    self.session.flush()
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 4142, in flush
+    self._flush(objects)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 4278, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 4238, in _flush
+    flush_context.execute()
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 645, in execute
+    uow,
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 90, in save_obj
+    update,
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 910, in _emit_update_statements
+    statement, multiparams, execution_options=execution_options
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1415, in execute
+    execution_options or NO_OPTIONS,
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 484, in _execute_on_connection
+    self, distilled_params, execution_options
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1645, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1845, in _execute_context
+    dialect, context, statement, parameters
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1985, in _exec_single_context
+    e, str_statement, effective_parameters, cursor, context
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2339, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1966, in _exec_single_context
+    cursor, str_statement, effective_parameters, context
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
+[SQL: UPDATE user SET username=?, about_me=? WHERE user.id = ?]
+[parameters: ('john', 'My name is poenomaly. I am learning all I can about Flask and Python so that I can become a data scientist and machine learning engineer!', 4)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2023-07-12 15:02:54,358 INFO: Microblog startup [in /Users/Daniel/Desktop/learning_flask/microblog/app/__init__.py:45]
+2023-07-12 15:08:24,678 INFO: Microblog startup [in /Users/Daniel/Desktop/learning_flask/microblog/app/__init__.py:45]
+2023-07-12 15:08:30,375 ERROR: Exception on /edit_profile [GET] [in /Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py:1745]
+Traceback (most recent call last):
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/app/routes.py", line 86, in edit_profile
+    form = EditProfileForm()
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/wtforms/form.py", line 208, in __call__
+    return type.__call__(cls, *args, **kwargs)
+TypeError: __init__() missing 1 required positional argument: 'original_username'
+2023-07-12 15:08:39,389 ERROR: Exception on /edit_profile [GET] [in /Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py:1745]
+Traceback (most recent call last):
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/app/routes.py", line 86, in edit_profile
+    form = EditProfileForm()
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/wtforms/form.py", line 208, in __call__
+    return type.__call__(cls, *args, **kwargs)
+TypeError: __init__() missing 1 required positional argument: 'original_username'
+2023-07-12 15:11:41,558 INFO: Microblog startup [in /Users/Daniel/Desktop/learning_flask/microblog/app/__init__.py:45]
