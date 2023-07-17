@@ -1,2 +1,56 @@
 2023-07-13 22:53:15,982 INFO: Microblog startup [in /Users/Daniel/Desktop/learning_flask/microblog/app/__init__.py:45]
 2023-07-13 22:56:08,117 INFO: Microblog startup [in /Users/Daniel/Desktop/learning_flask/microblog/app/__init__.py:45]
+2023-07-16 22:03:48,204 INFO: Microblog startup [in /Users/Daniel/Desktop/learning_flask/microblog/app/__init__.py:45]
+2023-07-16 22:04:02,437 ERROR: Exception on /explore [GET] [in /Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py:1745]
+Traceback (most recent call last):
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 1521, in __getattr__
+    return getattr(self.comparator, key)
+AttributeError: 'Comparator' object has no attribute 'all'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/app/routes.py", line 140, in explore
+    posts = Post.query.order_by(Post.timestamp.desc().all())
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 1530, in __getattr__
+    ) from err
+AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an attribute 'all'
+2023-07-16 22:04:33,058 ERROR: Exception on /explore [GET] [in /Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py:1745]
+Traceback (most recent call last):
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 1521, in __getattr__
+    return getattr(self.comparator, key)
+AttributeError: 'Comparator' object has no attribute 'all'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/Daniel/Desktop/learning_flask/microblog/app/routes.py", line 140, in explore
+    posts = Post.query.order_by(Post.timestamp.desc().all())
+  File "/Users/Daniel/Desktop/learning_flask/microblog/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 1530, in __getattr__
+    ) from err
+AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an attribute 'all'
+2023-07-16 22:05:56,800 INFO: Microblog startup [in /Users/Daniel/Desktop/learning_flask/microblog/app/__init__.py:45]
+2023-07-16 22:16:40,840 INFO: Microblog startup [in /Users/Daniel/Desktop/learning_flask/microblog/app/__init__.py:45]
+2023-07-16 22:25:49,953 INFO: Microblog startup [in /Users/Daniel/Desktop/learning_flask/microblog/app/__init__.py:45]
+2023-07-16 22:32:48,670 INFO: Microblog startup [in /Users/Daniel/Desktop/learning_flask/microblog/app/__init__.py:45]
+2023-07-16 22:34:43,507 INFO: Microblog startup [in /Users/Daniel/Desktop/learning_flask/microblog/app/__init__.py:45]
